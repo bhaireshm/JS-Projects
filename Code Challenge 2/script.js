@@ -1,18 +1,25 @@
 
-var johnMatch1 = 89;
-var johnMatch2 = 120;
-var johnMatch3 = 103;
-var johnMatchAvg = (johnMatch1 + johnMatch2 + johnMatch3) / 3;
 
-var mikeMatch1 = 116;
-var mikeMatch2 = 94;
-var mikeMatch3 = 123;
-var mikeMatchAvg = (mikeMatch1 + mikeMatch2 + mikeMatch3) / 3;
+var johnMatchAvg = (89 + 120 + 103  +24) / 3;
 
-if (mikeMatchAvg > johnMatchAvg){
-    console.log("Mike's team won the match. Avg : "+mikeMatchAvg);
-} else if(mikeMatchAvg == johnMatchAvg){
-    console.log("Match is draw... Avg : "+mikeMatchAvg, johnMatchAvg);
-} else {
-    console.log("John's team won the match  Avg : "+johnMatchAvg);
+var mikeMatchAvg = (116 + 94 + 123  +3) / 3;
+
+var maryMatchAvg = (97 + 134 + 105) / 3;
+
+console.log("Mike: "+mikeMatchAvg+", John: "+johnMatchAvg+ ", Mary: "+maryMatchAvg);
+
+if (mikeMatchAvg > johnMatchAvg && mikeMatchAvg > maryMatchAvg)
+{
+    console.log("Mike's team won the match. Avg points: "+mikeMatchAvg);
+} 
+else if(johnMatchAvg > mikeMatchAvg &&  johnMatchAvg > maryMatchAvg)
+{
+    console.log("John's team won the match  Avg points: "+johnMatchAvg);
+} 
+else if (maryMatchAvg > mikeMatchAvg && maryMatchAvg > johnMatchAvg)
+{
+    console.log("Mary's team won the match  Avg points: "+maryMatchAvg);
+}
+else {
+    console.log("Match is draw...");
 }
