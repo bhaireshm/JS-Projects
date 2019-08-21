@@ -1,12 +1,11 @@
 
 
-var score, roundScore, activePlayer, gamePlaying;
+var score, roundScore, activePlayer, gamePlaying, winScore;
 
 init();
 
+var prevsDice;
 document.querySelector('.btn-roll').addEventListener('click', function(){
-    
-    var prevsDice;
 
     if(gamePlaying){
     // random number
@@ -18,6 +17,7 @@ document.querySelector('.btn-roll').addEventListener('click', function(){
     diceDOM.src = 'dice-' + dice + '.png';
 
     // update the roundscore if the score is not equal to zero
+       // console.log(dice,prevsDice);
         if(dice === 6 && prevsDice === 6){
            // player looses score
             score[activePlayer] = 0 ;            
@@ -26,12 +26,11 @@ document.querySelector('.btn-roll').addEventListener('click', function(){
          // add score
             roundScore += dice;
             document.querySelector('#current-'+ activePlayer).textContent = roundScore;
+            prevsDice = dice;
         } else {
             // next player
             nextPlayer();
         }
-
-        prevsDice = dice;
     }
 }) // end of roll btn click
 
@@ -40,13 +39,17 @@ document.querySelector('.btn-hold').addEventListener('click', function(){
     // add current score to global score
     score[activePlayer] += roundScore
 
-
     // update the user interface
     document.querySelector('#score-' + activePlayer).textContent = score[activePlayer];
 
     // check if player won the game
-        
-    if(score[activePlayer] >= 100){
+   // var winScore = document.getElementById('win-score').value ;
+
+    if(winScore === 0 || winScore ==  null){
+        winScore = 100;
+    }
+
+    if(score[activePlayer] >= winScore  ){
         document.querySelector('#name-'+activePlayer).textContent = 'Winner!!'
         document.querySelector('.dice').style.display = 'none';
 
@@ -102,8 +105,8 @@ function init(){
     document.getElementById('current-0').textContent = '0'; // setting value to the elements which is in the html
     document.getElementById('current-1').textContent = '0'; // setting value to the elements which is in the html
     
-    document.querySelector('#name-0').textContent = prompt("Player 1 Name : "); //'Player 1' ;
-    document.querySelector('#name-1').textContent = prompt("Player 2 Name : ");//'Player 2' ;
+    // document.querySelector('#name-0').textContent = prompt("Player 1 Name : "); //'Player 1' ;
+    // document.querySelector('#name-1').textContent = prompt("Player 2 Name : ");//'Player 2' ;
 
     if((document.querySelector('#name-0').textContent) == '' && (document.querySelector('#name-1').textContent) == ''){
         document.querySelector('#name-0').textContent = "Player 1";
@@ -119,22 +122,12 @@ function init(){
 
 }
 
-
-
-
-
-
-
+function changeWinScore(){
+    winScore = prompt("Enter New Winning score Value");
+}
 
 
 //document.querySelector('#current-' + activePlayer).textContent = dice;  #current is id name 
 //document.querySelector('#current-' + activePlayer).innerHTML = '<em>' + dice + '</em>';
 //var x = (document.querySelector('#current-0').textContent = dice);
 //console.log(x);
-
-
-
-
-
-
-

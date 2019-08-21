@@ -157,9 +157,28 @@ i {
     transition: margin 0.3s;
 }
 
-.btn-new { top: 45px;}
-.btn-roll { top: 403px;}
-.btn-hold { top: 467px;}
+input{
+    position: absolute;
+    width: 150px;
+    height: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #222;
+    background: none;
+    border: solid;
+    font-family: Lato;
+    font-size: 10px;
+    text-transform: uppercase;
+    text-align: center;
+    cursor: pointer;
+    font-weight: 300;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+#win-score { top : 5%;}
+.btn-new { top: 15%;}
+.btn-roll { top: 65%;}
+.btn-hold { top: 75%;}
 
 .dice {
     position: absolute;
