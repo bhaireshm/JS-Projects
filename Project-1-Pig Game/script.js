@@ -18,8 +18,11 @@ document.querySelector('.btn-roll').addEventListener('click', function(){
     diceDOM.src = 'dice-' + dice + '.png';
 
     // update the roundscore if the score is not equal to zero
+        if(dice === 6 && prevsDice === 6){
+           // player looses score
+            score[activePlayer] = 0 ;            
 
-        if(dice !== 1){ //  SAME AS (dice > 1) // doesnt do type coerition
+        }else if(dice !== 1){ //  SAME AS (dice > 1) // doesnt do type coerition
          // add score
             roundScore += dice;
             document.querySelector('#current-'+ activePlayer).textContent = roundScore;
@@ -27,6 +30,8 @@ document.querySelector('.btn-roll').addEventListener('click', function(){
             // next player
             nextPlayer();
         }
+
+        prevsDice = dice;
     }
 }) // end of roll btn click
 
