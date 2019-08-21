@@ -6,10 +6,12 @@ init();
 
 document.querySelector('.btn-roll').addEventListener('click', function(){
     
+    var prevsDice;
+
     if(gamePlaying){
     // random number
-    var dice = Math.floor(Math.random() * 6) + 1;
-
+    var dice =  Math.floor(Math.random() * 6) + 1;
+        
     // display the result
     var diceDOM = document.querySelector('.dice');
     diceDOM.style.display = 'block';
@@ -18,7 +20,7 @@ document.querySelector('.btn-roll').addEventListener('click', function(){
     // update the roundscore if the score is not equal to zero
 
         if(dice !== 1){ //  SAME AS (dice > 1) // doesnt do type coerition
-            // add score
+         // add score
             roundScore += dice;
             document.querySelector('#current-'+ activePlayer).textContent = roundScore;
         } else {
