@@ -102,6 +102,7 @@ function init(){
     roundScore = 0;
     activePlayer = 0;
     gamePlaying = true;
+    winScore = 0;
     
     displayThis('#dice-1', 'none' );
     displayThis('#dice-2', 'none' );
