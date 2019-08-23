@@ -38,9 +38,9 @@ var profession = new Profession("aritha",2018);
 
 
 var john = new Person("John", 1997, "designer",profession);
-john.calcAge();
+//john.calcAge();
 
-console.log(john.profession.company)
+//console.log(john.profession.company)
 
 Profession.prototype.exprnceCalc = function(){
     this.exprnce = 2019 - this.DOJ;
@@ -52,7 +52,7 @@ john.profession.exprnceCalc();
 console.log(john.profession.exprnce);
 
 var meera = new Person("Meera", 1999, "Dancer");
-meera.calcAge();
+//meera.calcAge();
 // console.log(meera);
 // console.log(meera.lName);
 
