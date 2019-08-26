@@ -25,7 +25,7 @@ var Profession = function(company, DOJ){
     //this.exprnce = exprnce;
 }
 
-Person.calcAge = function(){
+Person.calcAge = function(){    
     this.age = 2019 - this.YOB;
 }
 

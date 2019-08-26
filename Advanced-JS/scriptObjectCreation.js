@@ -1,3 +1,5 @@
+
+
 var personProto = {
     calcAge : function(){
         console.log(2019 - this.YOB);
