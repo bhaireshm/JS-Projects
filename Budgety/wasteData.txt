@@ -1,0 +1,19 @@
+    var x = 23;
+
+    function add(a) {
+        return (a + x);
+    }
+
+    return {
+        publicTest: function (b) {
+            return add(b);
+        }
+    }
+
+     var z = budgetController.publicTest(7);
+
+    return {
+        someFunc: function () {
+            console.log(z);
+        }
+    }
