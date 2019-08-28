@@ -60,7 +60,6 @@ var budgetController = (function () {
             } else {
                 ID = 0;
             }
-            console.log(ID);
 
             // Create new iten based on income or expense
             if (type == 'income') {
@@ -290,9 +289,9 @@ var UIController = (function () {
 //Contoller Module Global App Controller    
 var controller = (function (budgetCtrl, UICtrl) {
 
-    let setupEventListener = function () {
+    var setupEventListener = function () {
 
-        let DOMStr = UIController.getDOMStrings();
+        var DOMStr = UIController.getDOMStrings();
 
         document.querySelector(DOMStr.income).addEventListener('click', ctrlAddItem);
         document.querySelector(DOMStr.expense).addEventListener('click', ctrlAddItem);
@@ -348,9 +347,9 @@ var controller = (function (budgetCtrl, UICtrl) {
 
             // 2. Add item to the Budget Controller
             newItem = budgetController.addItem(input.idName, input.descriptionValue, input.addValue);
-            budgetController.getValue();
+            
+            //   budgetController.getValue();
             // 3. Add item to the UI Controller
-
             UIController.addItemsToList(newItem, input.idName);
 
             // 4. CLearing Fields
@@ -361,7 +360,6 @@ var controller = (function (budgetCtrl, UICtrl) {
 
             // 6. calculate and update percentages
             updatePercentages();
-
 
         } else {
             alert("Description Field is empty or Value is Zero..!!");
@@ -397,6 +395,7 @@ var controller = (function (budgetCtrl, UICtrl) {
         init: function () {
             console.log("App started");
             UIController.displayDate(); // Select The current Month and Year
+            
             UIController.displayBudget({ // 
                 budget: 0,
                 totalIncome: 0,
@@ -406,7 +405,6 @@ var controller = (function (budgetCtrl, UICtrl) {
             setupEventListener();
         }
     }
-
 })(budgetController, UIController);
 
 controller.init(); // 
