@@ -170,7 +170,7 @@ body {
 .add-description:focus,
 .add-value:focus {
     outline: none;
-    border: 1px solid #28B9B5;
+    border: 1px solid #000;
 }
 
 .add-btn:focus { outline: none; }
@@ -199,8 +199,8 @@ h2 {
     margin-bottom: 15px;
 }
 
-.icome__title { color: #28B9B5; }
-.expenses__title { color: #FF5049; }
+.icome-title { color: #28B9B5; }
+.expenses-title { color: #FF5049; }
 
 .item {
     padding: 13px;
