@@ -79,7 +79,7 @@ let avgLenOfTown = (totalLenOfStreets / allStreets.length) * 100;
 // 
 
 console.log('-------PARKS REPORT-------');
-console.log(`Our 3 parks has an avegrage of ${avgAgeTown} years.`);
+console.log(`Our ${allParks.length} parks has an avegrage of ${avgAgeTown} years.`);
 allParks.forEach(curr =>{
     curr.calcTreeDensity();
 });
@@ -87,7 +87,7 @@ isTreesGt1000(allParks);
 console.log();
 
 console.log('-------STREETS REPORT-------');
-console.log(`Our 4 streets has a total length of ${totalLenOfStreets} km., with an avegrage of ${avgLenOfTown} km.`);
+console.log(`Our ${allStreets.length} streets has a total length of ${totalLenOfStreets} km., with an avegrage of ${avgLenOfTown} km.`);
 allStreets.forEach(curr => {
     curr.sizeClassification();
 });
