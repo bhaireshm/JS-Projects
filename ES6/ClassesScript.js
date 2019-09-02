@@ -29,15 +29,70 @@ class Person {
 // }
 
 
-class Hello {
-    constructor() {
-        console.log("you called constructor...")
-    }
+// class Hello {
+//     constructor() {
+//         console.log("you called constructor...")
+//     }
 
-    constructor(a) {
-        console.log("You called parametrised constructor agr=" + a);
+//     // constructor(a) {
+//     //     console.log("You called parametrised constructor agr=" + a);
+//     // }
+// }
+
+// new Hello();
+// new Hello('Hiii');
+
+// Subclasses Inheriting Super Class
+
+// var athlete = function (fname, YOB, job, olympicGames, medals) {
+
+//     Person.call(this, fname, YOB, job);
+//     this.olympicGames = olympicGames;
+//     this.medals = medals;
+
+// }
+
+// // inheriting in ES5
+
+// athlete.prototype = Object.create(Person.prototype);//
+
+// athlete.prototype.wonMedal = function(){
+//     this.medals++ ;
+//     console.log(this.medals);
+// }
+
+// athlete.wonMedal();
+
+class Athlete extends Person{ 
+    constructor(fname, YOB, job, olympicGames, medals){
+        super(fname, YOB, job); // calling super class and assigning values to it
+        this.olympicGames = olympicGames;
+        this.medals = medals;
+
+    }
+    wonMedal(){
+        this.medals++;
+        console.log(this.medals);
     }
 }
 
-new Hello();
-new Hello('Hiii');
+var john = new Athlete('John',1990, "swimmer", 5, 10);
+
+// console.log(john);
+// john.wonMedal();
+ john.calcAge();
+// console.log(john);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
