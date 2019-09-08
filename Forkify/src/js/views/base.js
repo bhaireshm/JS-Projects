@@ -6,7 +6,11 @@ export const Elements = {
     searchInput: document.querySelector('.search__field'),
     searchRecList: document.querySelector('.results__list'),
     searchResult: document.querySelector('.results'),
-    searchRecPages :document.querySelector('.results__pages')
+    searchResPages :document.querySelector('.results__pages'),
+    searchRecipe: document.querySelector('.recipe'),
+    
+    recipeDetails : document.querySelector('.recipe__details'),
+    recipeIngredients: document.querySelector('.recipe__ingredients'),
 
 };
 

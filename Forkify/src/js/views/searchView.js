@@ -11,8 +11,11 @@ export const clearInput = () => {
 
 export const clearResults = () => {
     Elements.searchRecList.innerHTML = '';
-}
+};
 
+export const clearBtn = () => {
+    Elements.searchResPages.innerHTML = '';
+}
 
 const limitRecipeTitle = (title, limit = 17) => { //////// <========= work n understand properly.
     const newTitle = [];
@@ -50,7 +53,7 @@ const renderRecipe = recipe => {
 
 
 const createBtn = (page, type) => `
-    <button class="btn-inline results__btn--${type} data-goto=${type === 'prev' ? page - 1 : page + 1}">
+    <button class="btn-inline results__btn--${type}" data-goto=${type === 'prev' ? page - 1 : page + 1}>
         <svg class="search__icon">
             <use href="img/icons.svg#icon-triangle-${type === 'prev' ? 'left' : 'right'}"></use>
         </svg>
@@ -78,7 +81,7 @@ const renderButtons = (page, numResults, resPerPage) => {
 
     }
 
-    Elements.searchRecPages.insertAdjacentHTML('afterbegin', button);
+    Elements.searchResPages.insertAdjacentHTML('afterbegin', button);
 };
 
 export const renderResult = (recipes, page = 1, resPerPage = 10) => {

@@ -2,17 +2,18 @@
 /******* Global App Controller *******/
 
 import Search from "./models/Search";
+import Recipe from "./models/Recipe"
 import * as searchView from "./views/searchView";
 import { Elements, renderLoader, clearLoader } from "./views/base";
-/**
+
+
+/** SEARCH CONTROLLER
  * Search Object
  * current recipe object
  * Shopping list object
  * liked recipes
 */
-
 const state = {};
-
 const controlSearch = async () => {
     // 1. Get query from view
     const query = searchView.getInput(); //Elements.searchInput.value; // TODO
@@ -26,6 +27,7 @@ const controlSearch = async () => {
     // 3. Prepare UI for result
     searchView.clearInput();
     searchView.clearResults();
+    searchView.clearBtn();
     renderLoader(Elements.searchResult);
 
     if (state.search != null) {
@@ -34,7 +36,6 @@ const controlSearch = async () => {
 
         // 5. Render results for UI
         clearLoader();
-        searchView.renderResult(state.search.recipes);
     }
 };
 
@@ -43,12 +44,43 @@ Elements.searchForm2.addEventListener("submit", e => {
     controlSearch();
 });
 
-Elements.searchRecPages.addEventListener('click', e=>{
- //   console.log(e.target);
+Elements.searchResPages.addEventListener('click', e => {
+    //   console.log(e.target);
     const btn = e.target.closest('.btn-inline');
-    if(btn){
-        const goToPage = btn.dataset.goto;
-        console.log(goToPage)
+    if (btn) {
+        const goToPage = parseInt(btn.dataset.goto, 10);
+        searchView.clearResults();
+        searchView.clearBtn();
+        searchView.renderResult(state.search.recipes, goToPage);
+        console.log(goToPage);
     }
 })
+
+
+/** RECIPE CONTROLLER
+ *
+ * 
+*/
+let rId = [47025,47032, 54426, 47275]; 
+const rec = new Recipe(rId[2]);
+rec.getRecipe();
+console.log(rec);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
